@@ -44,7 +44,7 @@ fi
 ##==----------------------------------------------------------------------------
 ##  MacOS compatibility - for local testing
 
-export grep="grep"
+export grep="LC_ALL=en_GB.utf8 grep"
 if [[ "$(uname)" == "Darwin" ]] ; then
     export grep="ggrep"
     if ! grep --version 1>/dev/null ; then
