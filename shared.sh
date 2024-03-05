@@ -2,6 +2,9 @@
 # shellcheck disable=SC2034
 set -euo pipefail
 
+# Force UTF-8 for all commands, so GIT-Bash on Windows doesn't barf
+export LC_ALL=en_GB.UTF-8
+
 ##==----------------------------------------------------------------------------
 ##  SemVer regexes
 ##  see: https://semver.org/spec/v2.0.0.html#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
@@ -44,7 +47,7 @@ fi
 ##==----------------------------------------------------------------------------
 ##  MacOS compatibility - for local testing
 
-export grep="LC_ALL=en_GB.utf8 grep"
+export grep="grep"
 if [[ "$(uname)" == "Darwin" ]] ; then
     export grep="ggrep"
     if ! grep --version 1>/dev/null ; then
